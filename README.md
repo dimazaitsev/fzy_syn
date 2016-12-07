@@ -27,7 +27,7 @@ For instance, the following choice table of two variables x1 and x2 gives functi
 
 The fist function f1 is an FLF and can be specified as `f1 = x1 & ~x2 V ~x1 & x2`. 
 The second function f2 is not an FLF. However, we can specify f2 with 2 FLFs: 
-`f1a = ~x1 V x1 & x2 & ~x2` valid on the areas 2,3,4,6,8 and 
+`f1a = ~x1 V x1 & x2 & ~x2` valid on the areas 2, 3, 4, 6, 8 and 
 `f1b = x1 & ~x1 & ~x2 V ~x1 & x2 & ~x2` valid on the areas 1, 5, 7;
 valid values are marked with "*" in the CT.
 
@@ -43,7 +43,7 @@ On a given CT, it builds a DNF. The CT can be either complete or partial. A DNF 
 
 `fzy_dnf_tab` - builds a choice table on a given fuzzy logic function (DNF)
 
-On a given DNF of an FLF, it builds a complete CT. The CT contains `n!2^n` areas, where n is the number of FLF arguments.
+On a given DNF of an FLF, it builds a complete CT. The CT contains `n!2^n` areas, where `n` is the number of FLF arguments.
 
 `fzy_cmp_tab_dnf` - compares a choice table with a fuzzy logic function (DNF)
 
@@ -51,7 +51,7 @@ On the areas of a given CT, the function values are compared with the values com
 
 `fzy_gen_tab` - generates a random choice table for a given number of variables
 
-It builds a complete CT with random values of function equal to arguments and negations of arguments. The CT contains `n!2^n` areas, where n is the number of FLF arguments.
+It builds a complete CT with random values of function equal to arguments and negations of arguments. The CT contains `n!2^n` areas, where `n` is the number of FLF arguments.
 
 No formal minimization of FLFs, for neither complete nor partial functions, has been implemented in the present toolbox.
 
@@ -131,11 +131,11 @@ An example of the choice table file (`f1_tab`) for the function f1:
     ...
     FZYDNFEND [(L conjuncts)]
 
-"FZYDNF" - label of the DNF file beginning;
-`N` - number of arguments;
-`L` - number of conjuncts;
-"FZYDNFEND" - label of the DNF file end;
-`C_i` - the current conjunct (`1<=i<=L`);
+"FZYDNF" - label of the DNF file beginning;  
+`N` - number of arguments;  
+`L` - number of conjuncts;  
+"FZYDNFEND" - label of the DNF file end;  
+`C_i` - the current conjunct (`1<=i<=L`);  
 
     C_i: j_1 j_2 ... j_{m_i}
 
@@ -174,9 +174,11 @@ The obtained DNF file `f2a_dnf` follows:
     2 -2 1 
     FZYDNFEND (2 conjuncts)
 
+The following command line
+
     >fzy_cmp_tab_dnf f2_tab.txt f2a_dnf.txt f2_tab_comm.txt f2_tab_diff.txt
 
-compares a function given by CT file `f2_tab` with an FLF given by DNF file `f2a_dnf`, writes the coinciding rows to the file `f2_tab_comm`, and writes the different rows to the file `f2_tab_diff` with the function values according to the source CT file (f2_tab).
+compares a function given by CT file `f2_tab` with an FLF given by DNF file `f2a_dnf`, writes the coinciding rows to the file `f2_tab_comm`, and writes the different rows to the file `f2_tab_diff` with the function values according to the source CT file (`f2_tab`).
 
 The obtained difference file `f2_tab_diff` follows:
 
